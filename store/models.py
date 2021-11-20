@@ -61,7 +61,7 @@ variation_category_choice = (
 
 
 class Variation(models.Model):
-    product = models.ForeignKey(Product, on_delete=CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     variation_category = models.CharField(
         max_length=100, choices=variation_category_choice)
     variation_value = models.CharField(max_length=100)
@@ -87,3 +87,16 @@ class ReviewRating(models.Model):
 
     def __str__(self):
         return self.subject
+
+
+class ProductGallery(models.Model):
+    product = models.ForeignKey(
+        Product, default=None, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='store/products', max_length=225)
+
+    def __str__(self):
+        return self.product.product_name
+
+    class Meta:
+        verbose_name = 'productgallery '
+        verbose_name_plural = 'product gallery'
