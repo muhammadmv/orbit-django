@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)  # True
 
 ALLOWED_HOSTS = ['orbitcourse-env.eba-suymsgn9.us-west-2.elasticbeanstalk.com']
-
+# orbitcourse-env.eba-suymsgn9.us-west-2.elasticbeanstalk.com
 
 # Application definition
 
