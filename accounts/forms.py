@@ -1,11 +1,11 @@
 from django import forms
-from django.forms import fields
 from .models import Account, UserProfile
 
 
 class RegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'placeholder': 'Enter Password'
+        'placeholder': 'Enter Password',
+        'class': 'form-control',
     }))
 
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={
@@ -26,7 +26,6 @@ class RegistrationForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Password does not match"
             )
-        return super().clean()
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
