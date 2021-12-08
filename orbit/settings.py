@@ -13,6 +13,7 @@ from django.contrib.messages import constants as messages
 import os
 from pathlib import Path
 from decouple import config
+import ssl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -86,7 +87,7 @@ WSGI_APPLICATION = 'orbit.wsgi.application'
 
 AUTH_USER_MODEL = 'accounts.Account'
 
-
+ssl._create_default_https_context = ssl._create_unverified_context
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # Database Configuration
